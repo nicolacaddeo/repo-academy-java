@@ -9,9 +9,13 @@ public class Fibonacci {
         int userInput = scannerInput.nextInt();
         System.out.println(" " + num2);
 
-        for (int i = 1; i < userInput; i++) {
+        for (int i = 1; i < userInput; i++) { // il ciclo stampa solo i numeri dispari 
             num3 = num1 + num2;
-            System.out.println(" " + num3);
+            int even = num3 % 2;
+            if (even != 0) { 
+                System.out.println(" " + num3);
+
+            }
             num1 = num2;
             num2 = num3;
         }
