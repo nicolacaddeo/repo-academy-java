@@ -16,7 +16,7 @@ public class ArrRecapEx {
             if (userChoiceMenu == 1) { // MENU PRINCIPALE
                 while (action) {
                     Scanner inputScanner = new Scanner(System.in);
-                    System.out.println("Vuoi visualizzare numeri o stringhe?: \n(1) Numeri\n(2) Stringhe\n(3) Esci");
+                    System.out.println("Vuoi visualizzare numeri o stringhe?: \n(1) Numeri\n(2) Stringhe");
                     int userChoice = inputScanner.nextInt();
 
                     switch (userChoice) { // l'utente decide se visualizzare numeri o stringhe
@@ -33,7 +33,7 @@ public class ArrRecapEx {
                             }
                             break;
                         case 3:
-                            action = false; // ritorno al menu principale
+                            // action = false; // ritorno al menu principale
                             break;
                         default:
                             System.out.println("Opzione non disponibile");
