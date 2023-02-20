@@ -11,7 +11,11 @@ public class Fibonacci {
 
         for (int i = 1; i < userInput; i++) {
             num3 = num1 + num2;
-            System.out.println(" " + num3);
+            int even = num3 % 2;
+            if (even != 0) {
+                System.out.println(" " + num3);
+
+            }
             num1 = num2;
             num2 = num3;
         }
