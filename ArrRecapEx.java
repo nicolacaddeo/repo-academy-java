@@ -7,11 +7,11 @@ public class ArrRecapEx {
         Integer[] numbers = { 10, 20, 30, 40 };
         String[] words = { "Dog", "Cat", "Pig" };
         boolean enter = true;
-        boolean action = true;
         do {
             Scanner mainMenuScanner = new Scanner(System.in);
             System.out.println("Vuoi entrare o uscire: \n(1) Entra\n(2) Esci");
             int userChoiceMenu = mainMenuScanner.nextInt();
+            boolean action = true;
 
             if (userChoiceMenu == 1) { // MENU PRINCIPALE
                 while (action) {
@@ -34,14 +34,15 @@ public class ArrRecapEx {
                             break;
                         case 3:
                             action = false; // ritorno al menu principale
-
+                            continue;
                         default:
                             System.out.println("Opzione non disponibile");
 
                     }
 
                     Scanner input1Scanner = new Scanner(System.in);
-                    System.out.println("Vuoi modificare i numeri o le stringhe?: \n(1) Numeri\n(2) Stringhe");
+                    System.out
+                            .println("Vuoi modificare i numeri o le stringhe?: \n(1) Numeri\n(2) Stringhe\n(3) Uscire");
                     int userChange = input1Scanner.nextInt();
 
                     switch (userChange) { // l'utente decide se modificare numeri o stringhe
@@ -67,6 +68,9 @@ public class ArrRecapEx {
                             ArrayList<String> stringList = new ArrayList<String>(Arrays.asList(words));
                             stringList.add(stringToAdd); // aggiungo la stringa e torno al menu principale
                             words = stringList.toArray(words);
+                            break;
+                        case 3:
+                            action = false;
                             break;
                         default:
                             System.out.println("Opzione di modifica non disponibile");
