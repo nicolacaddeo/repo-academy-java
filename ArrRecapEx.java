@@ -16,7 +16,7 @@ public class ArrRecapEx {
             if (userChoiceMenu == 1) { // MENU PRINCIPALE
                 while (action) {
                     Scanner inputScanner = new Scanner(System.in);
-                    System.out.println("Vuoi visualizzare numeri o stringhe?: \n(1) Numeri\n(2) Stringhe");
+                    System.out.println("Vuoi visualizzare numeri o stringhe?\n(1) Numeri\n(2) Stringhe\n(3) Uscire");
                     int userChoice = inputScanner.nextInt();
 
                     switch (userChoice) { // l'utente decide se visualizzare numeri o stringhe
@@ -33,10 +33,11 @@ public class ArrRecapEx {
                             }
                             break;
                         case 3:
-                            // action = false; // ritorno al menu principale
-                            break;
+                            action = false; // ritorno al menu principale
+
                         default:
                             System.out.println("Opzione non disponibile");
+
                     }
 
                     Scanner input1Scanner = new Scanner(System.in);
@@ -60,12 +61,12 @@ public class ArrRecapEx {
                             // scanner per richiedere il numero da aggiungere
                             Scanner inputString = new Scanner(System.in);
 
-                            System.out.println("Inserisci il numero da aggiungere");
+                            System.out.println("Inserisci la stringa aggiungere");
                             String stringToAdd = inputString.nextLine();
 
                             ArrayList<String> stringList = new ArrayList<String>(Arrays.asList(words));
                             stringList.add(stringToAdd); // aggiungo la stringa e torno al menu principale
-                            numbers = stringList.toArray(numbers);
+                            words = stringList.toArray(words);
                             break;
                         default:
                             System.out.println("Opzione di modifica non disponibile");
