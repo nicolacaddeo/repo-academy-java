@@ -75,6 +75,7 @@ public class ArrRecapEx {
                         default:
                             System.out.println("Opzione di modifica non disponibile");
                     }
+
                 }
             } else if (userChoiceMenu == 2) {
                 System.out.println("Ciao!");
@@ -83,6 +84,5 @@ public class ArrRecapEx {
                 System.out.println("Opzione non disponibile");
             }
         } while (enter);
-
     }
 }
