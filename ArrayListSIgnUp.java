@@ -62,14 +62,27 @@ public class ArrayListSIgnUp {
 
                 case 2: // L'UTENTE DECIDE DI MODIFICARE I DATI
                     // chiedo usarname e password per la modifica
-                    Scanner scannerLogIn = new Scanner(System.in);
-                    System.out.println("Username:");
-                    String enteredName = scannerLogIn.nextLine();
+                    String enteredName = "";
+                    boolean askUsername = true;
+                    do {
+                        Scanner scannerLogIn = new Scanner(System.in);
+                        System.out.println("Username:");
+                        enteredName = scannerLogIn.nextLine();
+                        boolean isUserRegistered = userNames.contains(enteredName);
+                        if (isUserRegistered) { // controllo se l'utente esiste
+                            askUsername = false;
+                        }
+                    } while (askUsername);
 
+                    String enteredPassword = "";
+                    int indexOfUser = 0;
+
+                    // controllo se l'utente esiste
                     Scanner scannerLogInPass = new Scanner(System.in);
                     System.out.println("Password: ");
-                    String enteredPassword = scannerLogInPass.nextLine();
-                    int indexOfUser = userNames.indexOf(enteredName); // dato il nome recupero l'indice di quell'utente
+                    enteredPassword = scannerLogInPass.nextLine();
+                    // dato il nome recupero l'indice di
+                    indexOfUser = userNames.indexOf(enteredName);
 
                     // controllo se la password dell'utente con indice X e' corretta
                     if (enteredPassword.equals(passwords.get(indexOfUser))) {
