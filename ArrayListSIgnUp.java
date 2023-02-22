@@ -77,7 +77,6 @@ public class ArrayListSIgnUp {
                     String enteredPassword = "";
                     int indexOfUser = 0;
 
-                    // controllo se l'utente esiste
                     Scanner scannerLogInPass = new Scanner(System.in);
                     System.out.println("Password: ");
                     enteredPassword = scannerLogInPass.nextLine();
