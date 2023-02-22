@@ -1,7 +1,6 @@
 import java.util.Scanner;
 import java.util.ArrayList;
-import java.util.Random;
-import java.nio.charset.Charset;
+//import java.util.Random;
 
 public class RistoranteAdvanced {
     static ArrayList<String> dishes = new ArrayList<String>();
@@ -69,7 +68,6 @@ public class RistoranteAdvanced {
                                 System.out.println("Opzione non disponibile, riprovare");
                         }
                     }
-
                     break;
                 case 2:
                     System.out.println("Alla prossima!");
@@ -83,6 +81,7 @@ public class RistoranteAdvanced {
     }
 
     static void Buy() {
+        System.out.println("Budget disponibile --> " + randomBudget + " euro");
         System.out.println("Che piatto vuoi comprare?");
         Scanner scannerForDish = new Scanner(System.in);
         for (int i = 0; i < dishes.size(); i++) {
@@ -93,6 +92,7 @@ public class RistoranteAdvanced {
         int priceToPay = dishPrices.get(dishForUser);
         if (randomBudget > priceToPay) {
             totalAmount += priceToPay;
+            randomBudget -= priceToPay;
             System.out.println("Hai acquistato correttamente " + dishes.get(dishForUser));
         } else {
             System.out.println("Budget insufficente");
