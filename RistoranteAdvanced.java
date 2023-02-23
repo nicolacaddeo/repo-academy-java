@@ -4,11 +4,17 @@ import java.util.ArrayList;
 
 public class RistoranteAdvanced {
     static ArrayList<String> dishes = new ArrayList<String>();
+    static ArrayList<String> desserts = new ArrayList<String>();
     static ArrayList<String> ingredients = new ArrayList<String>();
+    static ArrayList<String> dessertsIngr = new ArrayList<String>();
     static ArrayList<Integer> dishPrices = new ArrayList<Integer>();
+    static ArrayList<Integer> dessertsPrices = new ArrayList<Integer>();
+
     static int randomBudget = 0;
     // variabile per tenere conto del totale speso
     static int totalAmount = 0;
+    // variabile per contare i piatti comprati
+    static int howManyDishes = 0;
 
     public static void main(String[] args) {
         // booleano per controllare il ciclo principale
@@ -91,9 +97,27 @@ public class RistoranteAdvanced {
         int dishForUser = scannerForDish.nextInt();
         int priceToPay = dishPrices.get(dishForUser);
         if (randomBudget > priceToPay) {
-            totalAmount += priceToPay;
-            randomBudget -= priceToPay;
+            totalAmount += priceToPay; // aggiorno il totale speso
+            randomBudget -= priceToPay; // aggiorno il budget disponibile
+            howManyDishes++; // aggiorno il numero di piatti comprati dal singolo utente
             System.out.println("Hai acquistato correttamente " + dishes.get(dishForUser));
+
+            // se l'utente acquista piu di 2 piatto gli si chiede se vuole il dessert
+            if (howManyDishes > 2) {
+                Scanner scannerForDessert = new Scanner(System.in);
+                System.out.println("Vuoi acquistare il dessert?\n[1] Si\n[2] No");
+                int userDessert = scannerForDessert.nextInt();
+
+                switch (userDessert) {
+                    case 1:
+                        break;
+                    case 2:
+                        break;
+                    default:
+                        System.out.println("Opzione non disponibile riprovare");
+                }
+
+            }
         } else {
             System.out.println("Budget insufficente");
         }
@@ -178,11 +202,18 @@ public class RistoranteAdvanced {
         // aggiungo nome piatti
         dishes.add("Carbonara");
         dishes.add("Tagliata");
+        desserts.add("Tiramisu");
+        desserts.add("Torta");
         // aggiungo ingredienti
         ingredients.add("Guanciale, uova, pecorino, parmigiano");
         ingredients.add("Carne di manzo, rucola, scaglie di grana");
+        dessertsIngr.add("Caffe, savoiardi, zucchero, uova");
+        dessertsIngr.add("Farina, zucchero, uova, cioccolato");
         // aggiungo prezzi
         dishPrices.add(15);
         dishPrices.add(30);
+        dessertsPrices.add(5);
+        dessertsPrices.add(5);
+
     }
 }
