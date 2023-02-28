@@ -2,7 +2,7 @@
 import java.util.Scanner;
 import java.util.ArrayList;
 
-public class MethodsFirstEx {
+public class MethodsFirstEx1 {
     static ArrayList<String> userNames = new ArrayList<String>();
     static ArrayList<String> passwords = new ArrayList<String>();
     // array nel quale gli utenti autenticati aggiungono elementi
