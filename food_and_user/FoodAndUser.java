@@ -6,6 +6,7 @@ import java.util.ArrayList;
 public class FoodAndUser {
     static ArrayList<String> userNames = new ArrayList<String>();
     static ArrayList<String> passwords = new ArrayList<String>();
+    static boolean isLogged = false;
 
     public static void main(String[] args) {
         System.out.println("Benvenuto al Java Ristorante");
@@ -18,15 +19,41 @@ public class FoodAndUser {
             int loginChoice = loginScanner.nextInt();
             switch (loginChoice) {
                 case 1:
+                    // AREA DI REGISTRAZIONE
                     SignUp();
                     break;
                 case 2:
+                    // AREA DI ACCESSO
                     LogIn();
+                    // * se l'utente é loggato puó continuare al menú del ristorante
+                    boolean keepOrdering = true;
+                    while (keepOrdering) {
+                        if (isLogged) {
+                            System.out.println("Scegli un'opzione:\n[1] Continua al ristorante\n[2] Esci");
+                            Scanner scannerApp = new Scanner(System.in);
+                            int userChoice = scannerApp.nextInt();
+                            switch (userChoice) {
+                                case 1:
+                                    System.out.println("Menu ordinazione");
+
+                                    break;
+                                case 2:
+                                    // *! ritorno al menú gestione utente
+                                    keepOrdering = false;
+
+                                    break;
+                                default:
+                                    System.out.println("Opzione non disponibile");
+                            }
+                        }
+                    }
                     break;
                 case 3:
                     System.out.println("Alla prossima!");
                     exitLogin = true;
                     break;
+                default:
+                    System.out.println("Opzione non disponibile");
             }
         }
     }
@@ -76,11 +103,12 @@ public class FoodAndUser {
             // controllo se la password dell'utente con indice X e' corretta
             if (enteredPassword.equals(passwords.get(indexOfUser))) {
                 System.out.println("LogIn effettuato con successo");
-
-                // ASSEGNO UN BUDGET RANDOM ALL'UTENTE
+                // *! varibile per entrare all'interno del menu delle ordinazioni
+                isLogged = true;
+                // * ASSEGNO UN BUDGET RANDOM ALL'UTENTE
                 int customerBudget = User.getRandomBudget();
                 System.out.println("Il tuo budget é " + customerBudget + " euro");
-                isCorrectPassword = true; // esco dal ciclo
+                isCorrectPassword = true; // *! esco dal ciclo
             } else {
                 System.out.println("Password errata");
             }
