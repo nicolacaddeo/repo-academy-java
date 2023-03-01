@@ -18,6 +18,10 @@ public class FoodAndUser {
             int loginChoice = loginScanner.nextInt();
             switch (loginChoice) {
                 case 1:
+                    /*
+                     * AREA DI REGISTRAZIONE
+                     */
+
                     // chiedo l'username all'utente
                     System.out.println("Inserisci il nome utente");
                     Scanner nameScanner = new Scanner(System.in);
@@ -32,11 +36,13 @@ public class FoodAndUser {
                     // istanza di User
                     User customer = new User(userName, password);
                     // FINE REGISTRAZIONE ---------------------------------------
+
                     break;
                 case 2:
                     /*
                      * AREA DI LOGIN
                      */
+
                     // chiedo usarname fino a quando non trova un utente esistente
                     String enteredName = "";
                     boolean askUsername = true;
@@ -51,6 +57,7 @@ public class FoodAndUser {
                             System.out.println("Utente non trovato, riprovare");
                         }
                     } while (askUsername);
+
                     // se l'utente esiste gli chiedo la password
                     String enteredPassword = "";
                     int indexOfUser = 0;
@@ -69,8 +76,8 @@ public class FoodAndUser {
                             System.out.println("Password errata");
                         }
                     } while (!isCorrectPassword);
-
                     // FINE LogIn ---------------------------------------
+
                     break;
                 case 3:
                     System.out.println("Alla prossima!");
