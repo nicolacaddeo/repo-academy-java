@@ -1,9 +1,9 @@
 import java.util.Scanner;
 import java.sql.Connection;
 import java.sql.DriverManager;
-import java.util.ArrayList;
 import java.sql.Statement;
 import java.sql.ResultSet;
+import java.util.ArrayList;
 
 public class Fibonacci {
     static ArrayList<Integer> numsGenerated = new ArrayList<Integer>();

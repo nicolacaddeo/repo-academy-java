@@ -71,7 +71,11 @@ public class FoodAndUser {
                         // controllo se la password dell'utente con indice X e' corretta
                         if (enteredPassword.equals(passwords.get(indexOfUser))) {
                             System.out.println("LogIn effettuato con successo");
-                            isCorrectPassword = true;
+
+                            // ASSEGNO UN BUDGET RANDOM ALL'UTENTE
+                            int customerBudget = User.getRandomBudget();
+                            System.out.println("Il tuo budget é " + customerBudget + " euro");
+                            isCorrectPassword = true; // esco dal ciclo
                         } else {
                             System.out.println("Password errata");
                         }

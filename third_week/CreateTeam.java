@@ -1,4 +1,4 @@
-package terza;
+package third_week;
 
 import java.util.Scanner;
 import java.util.ArrayList;

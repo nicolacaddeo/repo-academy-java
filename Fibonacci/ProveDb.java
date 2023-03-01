@@ -1,10 +1,9 @@
 import java.sql.DriverManager;
 import java.sql.Statement;
-import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Connection;
 
-public class ProveDb1 {
+public class ProveDb {
     public static void main(String[] args) {
         // Connessione database --------------------------------------------
         String DB_URL = "jdbc:mysql://localhost:3306/world";
@@ -22,14 +21,14 @@ public class ProveDb1 {
             } else {
                 System.out.println("Connessione fallita");
             }
-            String query = "SELECT country.Name, CASE WHEN country.SurfaceArea > ? THEN 'Superficie maggiore di 100000' ELSE 'Superficie minore di 100000' END AS 'ControlloSuperficie', CASE WHEN ifnull(country.IndepYear, false) = 'false' THEN 'Nessun anno di indipendeza' ELSE country.IndepYear END AS 'ControlloIndipendeza' FROM country";
-            // Statement stm = conn.createStatement();
-            // ResultSet rs = stm.executeQuery(query);
-            PreparedStatement stmt = conn.prepareStatement(query);
-            stmt.setInt(1, 100000);
-            ResultSet rs = stmt.executeQuery();
+            String query = String.format(
+                    "SELECT country.Name, countrylanguage.Language, countrylanguage.Percentage " +
+                            "FROM country, countrylanguage " +
+                            "WHERE country.Code = countrylanguage.CountryCode ");
+            Statement stm = conn.createStatement();
+            ResultSet rs = stm.executeQuery(query);
             while (rs.next()) {
-                String stringa = String.format("Name: %s; ControlloSuperficie: %s; ControlloInd: %s ",
+                String stringa = String.format("Name: %s; Lingua: %s; Percentuale: %s",
                         rs.getString(1),
                         rs.getString(2),
                         rs.getString(3));
