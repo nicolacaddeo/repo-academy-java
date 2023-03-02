@@ -1,32 +1,34 @@
 package RistoranteIncaps;
 
+import java.util.ArrayList;
+
 public class Dish {
-    private String ingr1;
-    public int ingr1Price = 3;
-    private String ingr2;
-    public int ingr2Price = 5;
+    private String bread;
+    public int price;
+    public ArrayList<String> Ingredients = new ArrayList<String>();
 
-    public String getIngr1() {
-        return ingr1;
+    public String getBread() {
+        return bread;
     }
 
-    public void setIngr1(String newIngr1) {
-        this.ingr1 = newIngr1;
+    public void setBread(String bread) {
+        this.bread = bread;
     }
 
-    public String getIngr2() {
-        return ingr2;
+    public int getPrice() {
+        return price;
     }
 
-    public void setIngr2(String newIngr2) {
-        this.ingr2 = newIngr2;
+    public void setPrice(int price) {
+        this.price = price;
     }
 
-    public String ingr3;
-    public String ingr4;
-    public int pubIngrPrice = 2;
+    public ArrayList<String> getIngredients() {
+        return Ingredients;
+    }
 
-    // * prezzo base
-    public int basePrice = 5;
+    public void setIngredients(ArrayList<String> ingredients) {
+        Ingredients = ingredients;
+    }
 
 }
