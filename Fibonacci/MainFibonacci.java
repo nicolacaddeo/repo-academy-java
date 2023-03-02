@@ -1,48 +1,16 @@
 import java.util.Scanner;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.Statement;
-import java.sql.ResultSet;
 import java.util.ArrayList;
 
 public class MainFibonacci {
     static ArrayList<Integer> numsGenerated = new ArrayList<Integer>();
 
     public static void main(String[] args) {
-        // Connessione database --------------------------------------------
-        String DB_URL = "jdbc:mysql://localhost:3306/world";
-        String DB_USERNAME = "root";
-        String DB_PASSWORD = "root";
-        String DB_DRIVER = "com.mysql.jdbc.Driver";
+        // * nuova connessione al DB (costruttore)
+        ConnectionFibonacci connection = new ConnectionFibonacci("jdbc:mysql://localhost:3306/fibonacci", "root",
+                "root");
 
-        Connection conn = null;
-        try {
-            Class.forName(DB_DRIVER);
-            conn = DriverManager.getConnection(DB_URL, DB_USERNAME, DB_PASSWORD);
-            if (conn != null) {
-                System.out.println("Connessione eseguita con successo");
-
-            } else {
-                System.out.println("Connessione fallita");
-            }
-            String query = "SELECT * FROM city LIMIT 5";
-            Statement stm = conn.createStatement();
-            ResultSet rs = stm.executeQuery(query);
-            while (rs.next()) {
-                String stringa = String.format("ID: %d; Name: %s; CountryCode: %s; District: %s; Population: %d;",
-                        rs.getInt(1),
-                        rs.getString(2),
-                        rs.getString(3),
-                        rs.getString(4),
-                        rs.getInt(5));
-                System.out.println(stringa);
-
-            }
-
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        // ------------------------------------------------------------------
+        // * try and chatch della connessione
+        connection.CreateConnection();
 
         boolean keep = true;
         while (keep) {

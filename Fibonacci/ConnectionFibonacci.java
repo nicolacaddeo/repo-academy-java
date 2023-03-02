@@ -8,12 +8,9 @@ import java.util.Scanner;
 public class ConnectionFibonacci {
     // TODO: Singleton
 
-    String DB_URL = "";
-    String DB_USERNAME = "";
-    String DB_PASSWORD = "";
-    // * statement statico con query
-    // * esecuzione query con result
-    // * funzione per collegare al MainFibonacci
+    private String DB_URL = "";
+    private String DB_USERNAME = "";
+    private String DB_PASSWORD = "";
 
     public ConnectionFibonacci(String url, String username, String password) {
         // * @param DB_URL, DB_USERNAME, DB_PASSWORD
