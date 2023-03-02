@@ -49,7 +49,7 @@ public class CityUser {
                             System.out.println(stringa);
                         }
                         break;
-                    case 2: // *! ricerca avanzata
+                    case 2: // *! ricerca avanzata, l'utente ricerca per CountryCode, ordine, popolazione
                         System.out.println("Benvenuto nella ricerca avanzata");
                         System.out.print("Inserisci il codice della nazione del quale mostrare le cittá: ");
 
@@ -67,6 +67,11 @@ public class CityUser {
                         Scanner populationScanner = new Scanner(System.in);
                         int population = populationScanner.nextInt(); // *! POPULATION
                         String advQuery = "";
+
+                        // * chiedo se si vuole visualizzare il nome della nazione
+                        System.out.println("Vuoi visualizzare il nome della nazione?:\n[1] Si\n[2] No");
+                        Scanner countryScanner = new Scanner(System.in);
+                        int viewNation = countryScanner.nextInt();
 
                         if (orderType == 1) {
                             advQuery = "SELECT city.Name, city.Population FROM city WHERE city.CountryCode = ? AND city.Population >= ? ORDER BY city.Name ASC ";
