@@ -29,13 +29,44 @@ public class FoodAndUser {
                     boolean keepOrdering = true;
                     while (keepOrdering) {
                         if (isLogged) {
+                            // popolo il menú + istanza di ristorante
+                            ArrayList<Pietanza> listaPietanze = new ArrayList<Pietanza>();
+
+                            String[] ingredienti1 = { "patate", "salsiccia" };
+                            listaPietanze.add(new Pietanza("Pizza patate e salsiccia", 8.0, ingredienti1));
+                            String[] ingredienti2 = { "pomodoro", "mozzarella" };
+                            listaPietanze.add(new Pietanza("Pizza rossa", 8.0, ingredienti2));
+
+                            Ristorante ristorante = new Ristorante(listaPietanze);
+
                             System.out.println("Scegli un'opzione:\n[1] Continua al ristorante\n[2] Esci");
                             Scanner scannerApp = new Scanner(System.in);
                             int userChoice = scannerApp.nextInt();
                             switch (userChoice) {
                                 case 1:
-                                    System.out.println("Menu ordinazione");
-
+                                    System.out.println("Scegli un'opzione:\n[1]Ordina\n[2]Visualizza\n[3]Esci");
+                                    Scanner scannerForMenu = new Scanner(System.in);
+                                    int userMenuChoice = scannerForMenu.nextInt();
+                                    switch (userMenuChoice) {
+                                        case 1: // * ORDINA
+                                            System.out.println(ristorante.toString());
+                                            System.out.println("\nOrdina un piatto inserendo un numero: ");
+                                            Scanner intScanner = new Scanner(System.in);
+                                            int input = intScanner.nextInt();
+                                            ristorante.ordina(input);
+                                            break;
+                                        case 2: // * VISUALIZZA
+                                            System.out.println(ristorante.toString());
+                                            System.out.println("\nVisualizza un piatto inserendo un numero: ");
+                                            Scanner scannerForDish = new Scanner(System.in);
+                                            input = scannerForDish.nextInt();
+                                            ristorante.visualizza(input);
+                                            break;
+                                        case 3:
+                                            break;
+                                        default:
+                                            System.out.println("Opzione non disponibile");
+                                    }
                                     break;
                                 case 2:
                                     // *! ritorno al menú gestione utente
@@ -60,11 +91,11 @@ public class FoodAndUser {
 
     static void SignUp() {
         // chiedo l'username all'utente
-        System.out.println("Inserisci il nome utente");
+        System.out.print("Inserisci il nome utente: ");
         Scanner nameScanner = new Scanner(System.in);
         String userName = nameScanner.nextLine();
         // creazione della password
-        System.out.println("Crea una password");
+        System.out.print("Crea una password: ");
         Scanner pwScanner = new Scanner(System.in);
         String password = pwScanner.nextLine();
         // DATI SULL'ARRAYLIST
@@ -80,13 +111,13 @@ public class FoodAndUser {
         boolean askUsername = true;
         do {
             Scanner scannerLogIn = new Scanner(System.in);
-            System.out.println("Inserisci il nome utente:");
+            System.out.print("Inserisci il nome utente: ");
             enteredName = scannerLogIn.nextLine();
             boolean isUserRegistered = userNames.contains(enteredName);
             if (isUserRegistered) { // controllo se l'utente esiste
                 askUsername = false;
             } else {
-                System.out.println("Utente non trovato, riprovare");
+                System.out.print("Utente non trovato, riprovare");
             }
         } while (askUsername);
 
