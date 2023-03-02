@@ -5,7 +5,7 @@ import java.sql.Statement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 
-public class Fibonacci {
+public class MainFibonacci {
     static ArrayList<Integer> numsGenerated = new ArrayList<Integer>();
 
     public static void main(String[] args) {
