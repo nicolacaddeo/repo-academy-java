@@ -1,8 +1,12 @@
 package registra_veicolo;
 
 import java.util.Scanner;
+import java.util.ArrayList;
 
 public class Main {
+    static ArrayList<Auto> createdCars = new ArrayList<Auto>();
+    static ArrayList<Moto> createdCycle = new ArrayList<Moto>();
+
     public static void main(String[] args) {
         boolean exit = false;
         boolean exitFromMenu = false;
@@ -22,6 +26,8 @@ public class Main {
                             Moto motorcycle = RegisterMotorcycle();
                             PrintCycle(motorcycle);
                         } else if ((registerChoice == 3)) {
+                            System.out.println("Auto registrate: " + createdCars.size());
+                            System.out.println("Moto registrate: " + createdCycle.size());
                             exitFromMenu = true;
                         }
                     }
@@ -67,6 +73,7 @@ public class Main {
         String tipoCarburante = stringScanner();
 
         Auto car = new Auto(marca, modello, annoFabbricazione, numeroPorte, tipoCarburante);
+        createdCars.add(car);
         return car;
     }
 
@@ -97,6 +104,7 @@ public class Main {
         String tipologia = stringScanner();
 
         Moto motorcycle = new Moto(marca, modello, annoFabbricazione, cilindrata, tipologia);
+        createdCycle.add(motorcycle);
         return motorcycle;
     }
 
