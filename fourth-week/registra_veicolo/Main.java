@@ -10,8 +10,16 @@ public class Main {
             int mainChoice = IntScanner();
             switch (mainChoice) {
                 case 1:
-                    Auto car1 = new Auto("Audi", "A3", 2011, 3, "Gasolio", 7);
-                    Auto car2 = new Auto("Audi", "A4", 2015, 5, "Gasolio", 6);
+
+                    // *-------------------------------------------------------------------------------------
+                    Auto car1 = new Auto("Audi", "A3", 2011, 3, "diesel");
+                    System.out.println("Consumo car1 --> " + car1.getConsumoMedio());
+
+                    Auto car2 = new Auto("Audi", "A4", 2015, 5, "benzina");
+                    System.out.println("Consumo car2 --> " + car2.getConsumoMedio());
+
+                    // *-------------------------------------------------------------------------------------
+
                     break;
                 case 2:
                     System.out.println("Ciao!");

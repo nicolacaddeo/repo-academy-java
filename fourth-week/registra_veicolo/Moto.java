@@ -27,16 +27,21 @@ public class Moto extends Veicolo {
         return potenza;
     }
 
-    // TODO potenza di conseguenza
-    public void setPotenza(int potenza) {
-        this.potenza = potenza;
+    public void setPotenza(int cilindrata) {
+        if (cilindrata < 600) {
+            this.potenza = 50;
+        } else if (cilindrata > 600) {
+            this.potenza = 70;
+        } else if (cilindrata > 1000) {
+            this.potenza = 80;
+        }
     }
 
     Moto(String marca, String modello,
-            int annoFabbricazione, int cilindrata, String tipologia, int potenza) {
+            int annoFabbricazione, int cilindrata, String tipologia) {
         super(marca, modello, annoFabbricazione);
         this.cilindrata = cilindrata;
         this.tipologia = tipologia;
-        this.potenza = potenza;
+        setPotenza(cilindrata);
     }
 }

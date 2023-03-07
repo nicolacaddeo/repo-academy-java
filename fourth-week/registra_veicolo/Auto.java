@@ -27,18 +27,27 @@ public class Auto extends Veicolo {
         return consumoMedio;
     }
 
-    // TODO consumo di conseguenza
-    public void setConsumoMedio(double consumoMedio) {
-        this.consumoMedio = consumoMedio;
+    public void setConsumoMedio(int numeroPorte, String tipoCarburante) {
+        if (numeroPorte <= 3 && tipoCarburante.equalsIgnoreCase("diesel")) {
+            this.consumoMedio = 5;
+
+        } else if (numeroPorte > 3 && tipoCarburante.equalsIgnoreCase("benzina")) {
+            this.consumoMedio = 7;
+
+        } else if (numeroPorte <= 3 && tipoCarburante.equalsIgnoreCase("benzina")) {
+            this.consumoMedio = 6;
+
+        } else {
+            this.consumoMedio = 8;
+        }
     }
 
     Auto(String marca, String modello,
-            int annoFabbricazione, int numeroPorte, String tipoCarburante, double consumoMedio) {
+            int annoFabbricazione, int numeroPorte, String tipoCarburante) {
 
         super(marca, modello, annoFabbricazione);
         this.numeroPorte = numeroPorte;
         this.tipoCarburante = tipoCarburante;
-        this.consumoMedio = consumoMedio;
-
+        setConsumoMedio(numeroPorte, tipoCarburante);
     }
 }
