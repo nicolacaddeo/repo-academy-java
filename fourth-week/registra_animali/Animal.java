@@ -1,3 +1,5 @@
+package registra_animali;
+
 public class Animal {
     private String color;
 

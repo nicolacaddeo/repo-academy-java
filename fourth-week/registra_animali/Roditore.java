@@ -1,3 +1,5 @@
+package registra_animali;
+
 import java.util.ArrayList;
 
 public class Roditore extends Animal {
