@@ -15,7 +15,7 @@ public class MenuFibonacci {
                     break;
                 case 2:
                     userOperation = InputScanner("Inserisci il numero che vuoi ricercare");
-                    FibonacciOp.SearchNum(userOperation);
+                    FibonacciOp.SearchNumber(userOperation);
                     break;
                 case 3:
                     System.out.println("Uscita...");

@@ -18,7 +18,7 @@ public class FibonacciOp {
         }
     }
 
-    public static void SearchNum(int input) {
+    public static void SearchNumber(int input) {
         ArrayList<Integer> numsGenerated = new ArrayList<Integer>();
         int index = 0;
         int n1 = 0;
