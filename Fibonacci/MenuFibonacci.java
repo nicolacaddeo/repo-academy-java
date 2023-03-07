@@ -1,25 +1,25 @@
 import java.util.Scanner;
-import java.util.ArrayList;
 
 public class MenuFibonacci {
 
     public static void MainMenu() {
-        boolean keep = true;
-        while (keep) {
-            Scanner choiceScanner = new Scanner(System.in);
-            System.out.println("Vuoi\n[1] Stampare la serie\n[2] Verificare un numero\n[3] Uscire");
-            int userChoice = choiceScanner.nextInt();
+        boolean exit = false;
+        while (!exit) {
+            int userChoice = InputScanner("Vuoi\n[1] Stampare la serie\n[2] Verificare un numero\n[3] Uscire");
+            int userOperation;
 
             switch (userChoice) {
                 case 1:
-                    PrintOperation();
+                    userOperation = InputScanner("Quante volte vuoi stampare la serie?");
+                    FibonacciOp.PrintSeries(userOperation);
                     break;
                 case 2:
-                    SearchNumOperation();
+                    userOperation = InputScanner("Inserisci il numero che vuoi ricercare");
+                    FibonacciOp.SearchNum(userOperation);
                     break;
                 case 3:
                     System.out.println("Uscita...");
-                    keep = false;
+                    exit = true;
                     break;
                 default:
                     System.out.println("Opzione non disponibile");
@@ -28,20 +28,12 @@ public class MenuFibonacci {
         }
     }
 
-    static void PrintOperation() {
+    static int InputScanner(String message) {
+        System.out.println(message);
+        Scanner intScanner = new Scanner(System.in);
+        int userInput = intScanner.nextInt();
 
-        Scanner inputScanner = new Scanner(System.in);
-        System.out.println("Quante volte vuoi stampare la serie?");
-        int userInput = inputScanner.nextInt();
-
-        FibonacciOp.PrintSeries(userInput);
+        return userInput;
     }
 
-    static void SearchNumOperation() {
-        Scanner numScanner = new Scanner(System.in);
-        System.out.println("Inserisci il numero che vuoi ricercare");
-        int numToCheck = numScanner.nextInt();
-
-        FibonacciOp.SearchNum(numToCheck);
-    }
 }
