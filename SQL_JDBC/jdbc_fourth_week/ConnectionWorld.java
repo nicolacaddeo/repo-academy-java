@@ -8,19 +8,19 @@ import java.sql.Connection;
 import java.util.Scanner;
 import java.sql.ResultSetMetaData;
 
-public class ConnectionWorld {
+class ConnectionWorld {
     private String DB_URL = "";
     private String DB_USERNAME = "";
     private String DB_PASSWORD = "";
 
-    public ConnectionWorld(String url, String username, String password) {
+    ConnectionWorld(String url, String username, String password) {
         // * @param DB_URL, DB_USERNAME, DB_PASSWORD
         DB_URL = url;
         DB_USERNAME = username;
         DB_PASSWORD = password;
     }
 
-    public Connection CreateWorldConnection() {
+    Connection CreateWorldConnection() {
         try {
             Connection conn;
             conn = DriverManager.getConnection(DB_URL, DB_USERNAME, DB_PASSWORD);

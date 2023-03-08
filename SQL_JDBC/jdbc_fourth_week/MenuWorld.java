@@ -1,6 +1,6 @@
 package jdbc_fourth_week;
 
-public class MenuWorld {
+class MenuWorld {
     /*
      * Usando jdbc
      * recuperare e
