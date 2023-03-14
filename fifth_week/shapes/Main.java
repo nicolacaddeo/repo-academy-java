@@ -40,25 +40,6 @@ public class Main {
                     System.out.println("Opzione non disponibile");
             }
         }
-        /*
-         * Circle cerchio1 = new Circle(getRandomNumber());
-         * Circle cerchio2 = new Circle(getRandomNumber());
-         * 
-         * Triangle triangolo1 = new Triangle(getRandomNumber(), getRandomNumber(),
-         * getRandomNumber());
-         * Triangle triangolo2 = new Triangle(getRandomNumber(), getRandomNumber(),
-         * getRandomNumber());
-         * 
-         * shapeManager.addShape(cerchio1);
-         * shapeManager.addShape(cerchio2);
-         * shapeManager.addShape(triangolo1);
-         * shapeManager.addShape(triangolo2);
-         * 
-         * // * Test dei metodi
-         * shapeManager.getShapes();
-         * shapeManager.getTotalArea();
-         * shapeManager.getTotalPerimeter();
-         */
     }
 
     public static int getInput(String string) {
